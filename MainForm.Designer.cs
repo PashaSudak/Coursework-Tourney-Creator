@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.changePassButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // changePassButton
             // 
-            this.button1.Location = new System.Drawing.Point(35, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 41);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.changePassButton.Location = new System.Drawing.Point(35, 21);
+            this.changePassButton.Name = "changePassButton";
+            this.changePassButton.Size = new System.Drawing.Size(99, 41);
+            this.changePassButton.TabIndex = 0;
+            this.changePassButton.Text = "Змінити пароль";
+            this.changePassButton.UseVisualStyleBackColor = true;
+            this.changePassButton.Click += new System.EventHandler(this.changePassButton_Click);
             // 
             // button2
             // 
@@ -50,14 +51,14 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "Main";
+            this.Controls.Add(this.changePassButton);
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -65,7 +66,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button changePassButton;
         private System.Windows.Forms.Button button2;
     }
 }

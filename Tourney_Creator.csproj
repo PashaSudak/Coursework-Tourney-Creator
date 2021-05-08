@@ -122,6 +122,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassForm.Designer.cs">
+      <DependentUpon>ChangePassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersDB.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -129,17 +135,20 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="loginForm.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="loginForm.Designer.cs">
-      <DependentUpon>loginForm.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
-    <EmbeddedResource Include="loginForm.resx">
-      <DependentUpon>loginForm.cs</DependentUpon>
+    <EmbeddedResource Include="ChangePassForm.resx">
+      <DependentUpon>ChangePassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

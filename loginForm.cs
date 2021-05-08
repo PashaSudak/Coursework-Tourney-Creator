@@ -12,12 +12,11 @@ using System.Windows.Forms;
 
 namespace Tourney_Creator
 {
-    public partial class loginForm : Form
+    public partial class LoginForm : Form
     {
         UsersDB db = new UsersDB();
-        MainForm mainForm = new MainForm();
 
-        public loginForm()
+        public LoginForm()
         {
             InitializeComponent();
 
@@ -54,9 +53,20 @@ namespace Tourney_Creator
             }
             else
             {
-                isExist = db.IsLoginAndPasswordCorrect(login, pass);
-                if (Convert.ToBoolean(isExist))
+                int id = db.IsLoginAndPasswordCorrect(login, pass);
+
+                if (Convert.ToBoolean(id))
                 {
+                    User autUser = new User();
+                    autUser.Login = login;
+                    autUser.Pass = pass;
+                    autUser.id = id;
+                    autUser.rights = db.getRightsFromId(id);
+                    Console.WriteLine(autUser.rights);
+
+
+                    MainForm mainForm = new MainForm(autUser);
+
                     mainForm.Show();
                     this.Hide();
                 }
@@ -102,6 +112,26 @@ namespace Tourney_Creator
                     MessageBoxIcon.Information
                 );
             }
+        }
+
+        private void textBoxPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxLogin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

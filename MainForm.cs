@@ -12,9 +12,21 @@ namespace Tourney_Creator
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        User autUser = new User();
+
+        public MainForm(User _autUser)
         {
             InitializeComponent();
+
+            this.autUser = _autUser;
+        }
+
+        private void changePassButton_Click(object sender, EventArgs e)
+        {
+            ChangePassForm changePassForm = new ChangePassForm(autUser);
+
+            changePassForm.Show();
+            this.Hide();
         }
     }
 }

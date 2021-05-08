@@ -34,26 +34,23 @@ namespace Tourney_Creator
 
         public int IsLoginAndPasswordCorrect(string login, string pass)
         {
-            // -1 incorrect
-            // 0 user
-            // 1 admin
-
-            int rights = -1;
+            int id = 0;
             using (SQLiteCommand fmd = con.CreateCommand())
             {
                 try
                 {
-                    fmd.CommandText = @"SELECT id FROM users WHERE login=@l AND password=@p";
-                    fmd.Parameters.Add("@l", System.Data.DbType.String, -1);
+                    fmd.CommandText = @"SELECT id FROM users WHERE login=@l AND pass=@p";
+                    fmd.Parameters.Add("@l", System.Data.DbType.String);
                     fmd.Parameters["@l"].Value = login;
 
-                    fmd.Parameters.Add("@p", System.Data.DbType.String, -1);
+                    fmd.Parameters.Add("@p", System.Data.DbType.String);
                     fmd.Parameters["@p"].Value = pass;
 
                     SQLiteDataReader r = fmd.ExecuteReader();
+
                     while (r.Read())
                     {
-                        rights = Convert.ToInt32(r["rights"]);
+                        id = Convert.ToInt32(r["id"]);
                     }
                 }
                 catch (Exception ex)
@@ -61,12 +58,13 @@ namespace Tourney_Creator
                     Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
                 }
             }
-            return rights;
+            Console.WriteLine(id);
+            return id;
         }
 
         public void AddNewUser(string login, string pass)
         {
-            int rights = 0;
+            int rights = 1;
 
             using (SQLiteCommand fmd = con.CreateCommand())
             {
@@ -135,29 +133,28 @@ namespace Tourney_Creator
             return x;
 
         }
-        //===============================================================================================
 
-        public int ModifyUserPassword()
-        {// CheckLogin and Password. 0 - fail; other - it's user id
-            string login, dbpass = "", pass, new_pass1, new_pass2;
-            Console.WriteLine("CHANGING PASSWORD FOR USER.");
-            Console.Write("LOGIN : "); login = Console.ReadLine();
+        public int ModifyUserPassword(User autUser, string login, string newPass)
+        {// CheckLogin and Password. 0 - fail; -1 - no rights; other - it's user id
+            if ((autUser.Login != login) && (autUser.rights != 2))
+            {
+                return -1;
+            }
+
+            string dbpass = "";
 
             using (SQLiteCommand fmd = con.CreateCommand())
             {
                 try
                 {
-                    // fmd.CommandText = @"SELECT id FROM users WHERE login=@l AND password=@p";
-                    fmd.CommandText = @"SELECT password FROM users WHERE login = @l";
+                    fmd.CommandText = @"SELECT pass FROM users WHERE login = @l";
                     fmd.Parameters.Add("@l", System.Data.DbType.String, -1);
                     fmd.Parameters["@l"].Value = login;
 
                     SQLiteDataReader r = fmd.ExecuteReader();
                     while (r.Read())
                     {
-                        //Console.WriteLine("->"+ (int)r["id"]);
-                        dbpass = Convert.ToString(r["password"]);
-                        //user_id = (int)r["id"];
+                        dbpass = Convert.ToString(r["pass"]);
                     }
 
                 }
@@ -168,23 +165,7 @@ namespace Tourney_Creator
             }
             if (dbpass == "")
             {
-                Console.Write("ERROR : USER " + login + " NOT FOUNDED!"); ;
-                return 0;
-            }
-
-            Console.Write("OLD PASSWORD : "); pass = Console.ReadLine();
-
-
-            if (pass != dbpass)
-            {
-                Console.Write("ERROR : INCORRECT CURRENT USER " + login + " PASSWORD!"); ;
-                return 0;
-            }
-
-            Console.Write("NEW PASSWORD : "); new_pass1 = Console.ReadLine();
-            Console.Write("Confirm new PASSWORD : "); new_pass2 = Console.ReadLine();
-            if (new_pass1 != new_pass2)
-            {
+                Console.Write("ERROR : USER " + login + " NOT FOUNDED!");
                 return 0;
             }
 
@@ -193,26 +174,50 @@ namespace Tourney_Creator
             {
                 try
                 {
-                    // fmd.CommandText = @"SELECT id FROM users WHERE login=@l AND password=@p";
-                    fmd.CommandText = @"UPDATE users SET password = @np WHERE login = @l AND password = @p";
+                    fmd.CommandText = @"UPDATE users SET pass = @np WHERE login = @l";
                     fmd.Parameters.Add("@l", System.Data.DbType.String, -1);
                     fmd.Parameters["@l"].Value = login;
 
-                    fmd.Parameters.Add("@p", System.Data.DbType.String, -1);
-                    fmd.Parameters["@p"].Value = pass;
-
                     fmd.Parameters.Add("@np", System.Data.DbType.String, -1);
-                    fmd.Parameters["@np"].Value = new_pass1;
+                    fmd.Parameters["@np"].Value = newPass;
 
                     x = fmd.ExecuteNonQuery();
                     Console.WriteLine("NEW PASSWORD FOR USER '" + login + "' CHANGED SUCCESSFULLY IN SQLITE DB!");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
+                    Console.WriteLine("SQLITE UPDATE ERROR : " + ex.Message);
                 }
             }
             return x;
+        }
+
+        public int getRightsFromId(int id)
+        {
+            int rights = -1;
+
+            using (SQLiteCommand fmd = con.CreateCommand())
+            {
+                try
+                {
+                    fmd.CommandText = @"SELECT rights FROM users WHERE id=@i";
+                    fmd.Parameters.Add("@i", System.Data.DbType.String);
+                    fmd.Parameters["@i"].Value = id;
+
+                    SQLiteDataReader r = fmd.ExecuteReader();
+
+                    while (r.Read())
+                    {
+                        rights = Convert.ToInt32(r["rights"]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
+                }
+            }
+
+            return rights;
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Tourney_Creator
 {
-    class User
+    public class User
     {
         public int id { get; set; }
         private string login, pass;
-        public int isAdmin;
+        public int rights { get; set; }
 
         public string Login
         {
@@ -26,8 +26,8 @@ namespace Tourney_Creator
 
         public int IsAdmin
         {
-            get { return isAdmin; }
-            set { isAdmin = value; }
+            get { return rights; }
+            set { rights = value; }
         }
 
 
@@ -37,7 +37,7 @@ namespace Tourney_Creator
         {
             this.login = login;
             this.pass = pass;
-            isAdmin = 0;
+            rights = 0;
         }
     }
 }

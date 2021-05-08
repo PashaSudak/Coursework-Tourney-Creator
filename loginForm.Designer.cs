@@ -1,6 +1,6 @@
 ﻿namespace Tourney_Creator
 {
-    partial class loginForm
+    partial class LoginForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -44,6 +44,7 @@
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Логін";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -53,6 +54,7 @@
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Пароль";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBoxLogin
             // 
@@ -60,6 +62,7 @@
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(166, 20);
             this.textBoxLogin.TabIndex = 2;
+            this.textBoxLogin.TextChanged += new System.EventHandler(this.textBoxLogin_TextChanged);
             // 
             // textBoxPass
             // 
@@ -69,6 +72,7 @@
             this.textBoxPass.PasswordChar = '*';
             this.textBoxPass.Size = new System.Drawing.Size(166, 20);
             this.textBoxPass.TabIndex = 3;
+            this.textBoxPass.TextChanged += new System.EventHandler(this.textBoxPass_TextChanged);
             // 
             // loginButton
             // 
