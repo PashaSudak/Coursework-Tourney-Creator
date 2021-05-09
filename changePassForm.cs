@@ -13,7 +13,7 @@ namespace Tourney_Creator
     public partial class ChangePassForm : Form
     {
         User autUser = new User();
-        UsersDB db = new UsersDB();
+        private UsersDB db = new UsersDB();
         public ChangePassForm(User _autUser)
         {
             InitializeComponent();
@@ -65,6 +65,14 @@ namespace Tourney_Creator
                     );
                 }
             }
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm(autUser);
+
+            this.Close();
+            mainForm.Show();
         }
     }
 }

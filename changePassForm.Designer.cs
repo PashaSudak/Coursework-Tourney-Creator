@@ -88,6 +88,7 @@
             this.closeButton.TabIndex = 11;
             this.closeButton.Text = "Вихід";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // ChangePassForm
             // 
