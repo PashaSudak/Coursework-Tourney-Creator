@@ -28,5 +28,13 @@ namespace Tourney_Creator
             changePassForm.Show();
             this.Hide();
         }
+
+        private void teamsButton_Click(object sender, EventArgs e)
+        {
+            TeamsForm teamsForm = new TeamsForm(autUser);
+
+            teamsForm.Show();
+            this.Hide();
+        }
     }
 }

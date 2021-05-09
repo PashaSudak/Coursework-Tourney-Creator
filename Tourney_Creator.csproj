@@ -128,6 +128,26 @@
     <Compile Include="ChangePassForm.Designer.cs">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddNewTeamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewTeamForm.Designer.cs">
+      <DependentUpon>AddNewTeamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteTeamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteTeamForm.Designer.cs">
+      <DependentUpon>DeleteTeamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Team.cs" />
+    <Compile Include="TeamsDB.cs" />
+    <Compile Include="TeamsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamsForm.Designer.cs">
+      <DependentUpon>TeamsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersDB.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -147,6 +167,12 @@
     <EmbeddedResource Include="ChangePassForm.resx">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddNewTeamForm.resx">
+      <DependentUpon>AddNewTeamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteTeamForm.resx">
+      <DependentUpon>DeleteTeamForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +188,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TeamsForm.resx">
+      <DependentUpon>TeamsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

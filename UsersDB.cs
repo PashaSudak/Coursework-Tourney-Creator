@@ -10,7 +10,7 @@ namespace Tourney_Creator
 {
     class UsersDB
     {
-        public string connectionString = " Data Source = users.sqlite3; Version = 3 ";
+        public string connectionString = " Data Source = db.sqlite3; Version = 3 ";
         public SQLiteConnection con;
 
         public void ConnectToSQLiteDB()
@@ -88,7 +88,7 @@ namespace Tourney_Creator
                 }
             }
         }
-        //===============================================================================================
+
         public int DeleteUserFromDB()
         {// CheckLogin and Password. 0 - fail; other - it's user id
             string login;

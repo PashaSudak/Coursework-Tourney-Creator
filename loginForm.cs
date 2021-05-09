@@ -33,8 +33,6 @@ namespace Tourney_Creator
             string login = textBoxLogin.Text.Trim();
             string pass = textBoxPass.Text.Trim();
 
-            int isExist;
-
             if (login.Length < 5)
             {
                 MessageBox.Show("Логін має містити 5 або більше символів",
