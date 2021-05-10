@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,7 @@ namespace Tourney_Creator
                     autUser.rights = db.getRightsFromId(id);
                     Console.WriteLine(autUser.rights);
 
+                    File.AppendAllText("log.txt", "Info. " + autUser.Login + " logged in.\n");
 
                     MainForm mainForm = new MainForm(autUser);
 
@@ -75,6 +77,7 @@ namespace Tourney_Creator
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
+                    File.AppendAllText("log.txt", "Error. Incorrect login and pass.\n");
                 }
             }
         }
@@ -103,6 +106,8 @@ namespace Tourney_Creator
             else
             {
                 db.AddNewUser(login, pass);
+
+                File.AppendAllText("log.txt", "Info. Created new account - " + login + ".\n");
 
                 MessageBox.Show("Акаунт створенно",
                     "ERROR",

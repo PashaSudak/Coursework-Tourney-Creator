@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,21 +41,23 @@ namespace Tourney_Creator
             {
                 int opResult = db.ModifyUserPassword(autUser, login, newPass);
 
-                if (opResult == -1)
-                {
-                    MessageBox.Show("У вас немає доступа для зміни пароля користувача " + login + "!",
-                        "ERROR",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning
-                    );
-                }
-                else if (opResult == 0)
+                
+                if (opResult == 0)
                 {
                     MessageBox.Show("Користувача " + login + " не знайденно!",
                         "ERROR",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
+                }
+                else if (opResult == -1)
+                {
+                    MessageBox.Show("У вас немає доступа для зміни пароля користувача " + login + "!",
+                        "ERROR",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    File.AppendAllText("log.txt", "Info. " + autUser.Login + "tried to change pass for" + login + ".\n");
                 }
                 else
                 {
@@ -63,6 +66,7 @@ namespace Tourney_Creator
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
+                    File.AppendAllText("log.txt", "Info. " + autUser.Login + " changed pass for" + login + ".\n");
                 }
             }
         }

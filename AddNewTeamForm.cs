@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,7 @@ namespace Tourney_Creator
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
+                File.AppendAllText("log.txt", "Info. " + autUser.Login + " added new team " + name + ".\n");
             }
         }
 
