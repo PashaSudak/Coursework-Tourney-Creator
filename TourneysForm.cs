@@ -17,6 +17,7 @@ namespace Tourney_Creator
     {
         private User autUser;
         TourneysDB db = new TourneysDB();
+        private DataTable dataTable = null;
         public TourneysForm(User autUser)
         {
             InitializeComponent();
@@ -34,7 +35,6 @@ namespace Tourney_Creator
 
             db.ConnectToSQLiteDB();
             db.AddNewTourney(tourneyName,jsonIds);
-
         }
 
         private void addNewTourney_Click(object sender, EventArgs e)
@@ -43,6 +43,46 @@ namespace Tourney_Creator
 
             this.Close();
             tourneySetName.Show();
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm(autUser);
+            
+            this.Close();
+            mainForm.Show();
+        }
+
+        private void TourneysForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            try
+            {
+                dataTable = db.GetDataTable();
+
+                dataGridView1.DataSource = dataTable;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                MessageBox.Show("ERROR",
+                    "ERROR",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        private void deleteTourneyButton_Click(object sender, EventArgs e)
+        {
+            DeleteTourneyForm deleteTourneyForm = new DeleteTourneyForm(autUser);
+
+            this.Close();
+            deleteTourneyForm.Show();
         }
     }
 }

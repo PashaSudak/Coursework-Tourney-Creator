@@ -65,7 +65,7 @@ namespace Tourney_Creator
             }
         }
 
-        public int DeleteUserFromDB(int id)
+        public int DeleteTeamFromDB(int id)
         {
             int x = 0;
 

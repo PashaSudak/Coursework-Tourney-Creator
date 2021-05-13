@@ -149,6 +149,12 @@
     <Compile Include="DeleteTeamForm.Designer.cs">
       <DependentUpon>DeleteTeamForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteTourneyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteTourneyForm.Designer.cs">
+      <DependentUpon>DeleteTourneyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Team.cs" />
     <Compile Include="TourneySetName.cs">
       <SubType>Form</SubType>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteTeamForm.resx">
       <DependentUpon>DeleteTeamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteTourneyForm.resx">
+      <DependentUpon>DeleteTourneyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

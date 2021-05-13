@@ -11,23 +11,40 @@ using System.Windows.Forms;
 
 namespace Tourney_Creator
 {
-    public partial class DeleteTeamForm : Form
+    public partial class DeleteTourneyForm : Form
     {
-        TeamsDB db = new TeamsDB();
         User autUser = new User();
-        public DeleteTeamForm(User autUser)
+        TourneysDB db = new TourneysDB();
+        public DeleteTourneyForm(User autUser)
         {
             InitializeComponent();
 
             this.autUser = autUser;
+
             db.ConnectToSQLiteDB();
         }
 
-        private void deleteTeamButton_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(textBoxTeamName.Text.Trim());
+            TourneysForm tourneysForm = new TourneysForm(autUser);
 
-            int result = db.DeleteTeamFromDB(id);
+            this.Close();
+            tourneysForm.Show();
+        }
+
+        private void textBoxTourneyId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void deleteTourneyButton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(textBoxTourneyId.Text.Trim());
+
+            int result = db.DeleteTourneyFromDB(id);
 
             if (result == 0)
             {
@@ -44,24 +61,8 @@ namespace Tourney_Creator
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
-                File.AppendAllText("log.txt", "Info. " + autUser.Login + " deleted team with id " + id + ".\n");
+                File.AppendAllText("log.txt", "Info. " + autUser.Login + " deleted tourney with id " + id + ".\n");
             }
-        }
-
-        private void textBoxTeamName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            TeamsForm teamsForm = new TeamsForm(autUser);
-            
-            this.Close();
-            teamsForm.Show();
         }
     }
 }

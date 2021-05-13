@@ -31,13 +31,14 @@
             this.changePassButton = new System.Windows.Forms.Button();
             this.teamsButton = new System.Windows.Forms.Button();
             this.tourneysButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // changePassButton
             // 
-            this.changePassButton.Location = new System.Drawing.Point(35, 21);
+            this.changePassButton.Location = new System.Drawing.Point(12, 12);
             this.changePassButton.Name = "changePassButton";
-            this.changePassButton.Size = new System.Drawing.Size(99, 41);
+            this.changePassButton.Size = new System.Drawing.Size(99, 44);
             this.changePassButton.TabIndex = 0;
             this.changePassButton.Text = "Змінити пароль";
             this.changePassButton.UseVisualStyleBackColor = true;
@@ -45,7 +46,7 @@
             // 
             // teamsButton
             // 
-            this.teamsButton.Location = new System.Drawing.Point(35, 84);
+            this.teamsButton.Location = new System.Drawing.Point(12, 75);
             this.teamsButton.Name = "teamsButton";
             this.teamsButton.Size = new System.Drawing.Size(99, 44);
             this.teamsButton.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // tourneysButton
             // 
-            this.tourneysButton.Location = new System.Drawing.Point(35, 152);
+            this.tourneysButton.Location = new System.Drawing.Point(12, 143);
             this.tourneysButton.Name = "tourneysButton";
             this.tourneysButton.Size = new System.Drawing.Size(99, 44);
             this.tourneysButton.TabIndex = 2;
@@ -63,11 +64,22 @@
             this.tourneysButton.UseVisualStyleBackColor = true;
             this.tourneysButton.Click += new System.EventHandler(this.tourneysButton_Click);
             // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(12, 394);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(99, 44);
+            this.exitButton.TabIndex = 3;
+            this.exitButton.Text = "Вихід";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.tourneysButton);
             this.Controls.Add(this.teamsButton);
             this.Controls.Add(this.changePassButton);
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Button changePassButton;
         private System.Windows.Forms.Button teamsButton;
         private System.Windows.Forms.Button tourneysButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }

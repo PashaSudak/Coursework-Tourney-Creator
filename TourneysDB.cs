@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Numerics;
@@ -12,6 +13,7 @@ namespace Tourney_Creator
     {
         public string connectionString = " Data Source = db.sqlite3; Version = 3 ";
         public SQLiteConnection con;
+        private SQLiteDataAdapter sqliteDataAdapter = null;
 
         public void ConnectToSQLiteDB()
         {
@@ -74,8 +76,60 @@ namespace Tourney_Creator
                     Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
                 }
             }
+
             Console.WriteLine(id);
             return;
+        }
+
+        public DataTable GetDataTable()
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                sqliteDataAdapter = new SQLiteDataAdapter("SELECT * FROM Tourneys", con);
+
+
+                sqliteDataAdapter.Fill(dataSet, "Tourneys");
+
+                return dataSet.Tables["Tourneys"];
+            }
+            catch
+            {
+                return dataSet.Tables["ERROR"];
+            }
+        }
+
+        public int DeleteTourneyFromDB(int id)
+        {
+            int x = 0;
+
+            using (SQLiteCommand fmd = con.CreateCommand())
+            {
+                try
+                {
+                    fmd.CommandText = @"DELETE FROM Tourneys WHERE id = @id";
+                    fmd.Parameters.Add("@id", System.Data.DbType.String, -1);
+                    fmd.Parameters["@id"].Value = id;
+
+
+                    x = fmd.ExecuteNonQuery();
+                    if (x != 0)
+                    {
+                        Console.WriteLine("TOURNEY with id '" + id + "' DELETED SUCCESSFULLY FROM SQLITE DB!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("TOURNEY with id '" + id + "' NOT FOUND FROM SQLITE DB!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
+                }
+            }
+
+            return x;
         }
     }
 }
