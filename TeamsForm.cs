@@ -17,6 +17,8 @@ namespace Tourney_Creator
         TeamsDB db = new TeamsDB();
         SQLiteCommandBuilder sqlBuilder = null;
         DataTable dataTable = null;
+        private bool watchOnly = false;
+        private AddTeamsToTourneyForm addTeamsToTourneyForm;
         public TeamsForm(User autUser)
         {
             InitializeComponent();
@@ -24,12 +26,32 @@ namespace Tourney_Creator
             this.autUser = autUser;
         }
 
+        public TeamsForm(User autUser, bool watchOnly, AddTeamsToTourneyForm form)
+        {
+            InitializeComponent();
+
+            this.autUser = autUser;
+
+            this.watchOnly = watchOnly;
+
+            this.addTeamsToTourneyForm = form;
+
+            closeButton.Text = "Назад";
+        }
+
         private void closeButton_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm(autUser);
+            if (watchOnly)
+            {
+                addTeamsToTourneyForm.Show();
+            }
+            else
+            {
+                MainForm mainForm = new MainForm(autUser);
+                mainForm.Show();
+            }
 
             this.Close();
-            mainForm.Show();
         }
 
         private void TeamsForm_Load(object sender, EventArgs e)

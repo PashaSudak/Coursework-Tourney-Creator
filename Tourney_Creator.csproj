@@ -75,6 +75,9 @@
     <Reference Include="MySql.Data, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.8.0.24\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -122,6 +125,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTeamsToTourneyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTeamsToTourneyForm.Designer.cs">
+      <DependentUpon>AddTeamsToTourneyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,12 +150,26 @@
       <DependentUpon>DeleteTeamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Team.cs" />
+    <Compile Include="TourneySetName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TourneySetName.Designer.cs">
+      <DependentUpon>TourneySetName.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeamsDB.cs" />
     <Compile Include="TeamsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TeamsForm.Designer.cs">
       <DependentUpon>TeamsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tourney.cs" />
+    <Compile Include="TourneysDB.cs" />
+    <Compile Include="TourneysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TourneysForm.Designer.cs">
+      <DependentUpon>TourneysForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersDB.cs" />
     <Compile Include="MainForm.cs">
@@ -164,6 +187,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="AddTeamsToTourneyForm.resx">
+      <DependentUpon>AddTeamsToTourneyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassForm.resx">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,8 +214,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TourneySetName.resx">
+      <DependentUpon>TourneySetName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TeamsForm.resx">
       <DependentUpon>TeamsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourneysForm.resx">
+      <DependentUpon>TourneysForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

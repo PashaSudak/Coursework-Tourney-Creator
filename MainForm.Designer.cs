@@ -30,6 +30,7 @@
         {
             this.changePassButton = new System.Windows.Forms.Button();
             this.teamsButton = new System.Windows.Forms.Button();
+            this.tourneysButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // changePassButton
@@ -52,11 +53,22 @@
             this.teamsButton.UseVisualStyleBackColor = true;
             this.teamsButton.Click += new System.EventHandler(this.teamsButton_Click);
             // 
+            // tourneysButton
+            // 
+            this.tourneysButton.Location = new System.Drawing.Point(35, 152);
+            this.tourneysButton.Name = "tourneysButton";
+            this.tourneysButton.Size = new System.Drawing.Size(99, 44);
+            this.tourneysButton.TabIndex = 2;
+            this.tourneysButton.Text = "Турніри";
+            this.tourneysButton.UseVisualStyleBackColor = true;
+            this.tourneysButton.Click += new System.EventHandler(this.tourneysButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tourneysButton);
             this.Controls.Add(this.teamsButton);
             this.Controls.Add(this.changePassButton);
             this.Name = "MainForm";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button changePassButton;
         private System.Windows.Forms.Button teamsButton;
+        private System.Windows.Forms.Button tourneysButton;
     }
 }

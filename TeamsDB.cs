@@ -114,5 +114,38 @@ namespace Tourney_Creator
                 return dataSet.Tables["ERROR"];
             }
         }
+
+        public bool isExist(int id)
+        {
+            int idFromDb = 0;
+            using (SQLiteCommand fmd = con.CreateCommand())
+            {
+                try
+                {
+                    fmd.CommandText = @"SELECT id FROM Teams WHERE id=@id";
+                    fmd.Parameters.Add("@id", System.Data.DbType.String);
+                    fmd.Parameters["@id"].Value = id;
+
+                    SQLiteDataReader r = fmd.ExecuteReader();
+
+                    while (r.Read())
+                    {
+                        idFromDb = Convert.ToInt32(r["id"]);
+                    }
+
+                    if (Convert.ToBoolean(idFromDb))
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
+                   
+                }
+            }
+
+            return false;
+        }
     }
 }

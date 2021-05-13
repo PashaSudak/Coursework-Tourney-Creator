@@ -57,7 +57,7 @@ namespace Tourney_Creator
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
-                    File.AppendAllText("log.txt", "Info. " + autUser.Login + "tried to change pass for" + login + ".\n");
+                    File.AppendAllText("log.txt", "Info. " + autUser.Login + "tried to change pass for " + login + ".\n");
                 }
                 else
                 {
@@ -66,7 +66,7 @@ namespace Tourney_Creator
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
-                    File.AppendAllText("log.txt", "Info. " + autUser.Login + " changed pass for" + login + ".\n");
+                    File.AppendAllText("log.txt", "Info. " + autUser.Login + " changed pass for " + login + ".\n");
                 }
             }
         }

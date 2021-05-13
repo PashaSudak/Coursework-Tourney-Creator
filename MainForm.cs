@@ -36,5 +36,13 @@ namespace Tourney_Creator
             teamsForm.Show();
             this.Hide();
         }
+
+        private void tourneysButton_Click(object sender, EventArgs e)
+        {
+            TourneysForm tourneysForm = new TourneysForm(autUser);
+
+            tourneysForm.Show();
+            this.Hide();
+        }
     }
 }
