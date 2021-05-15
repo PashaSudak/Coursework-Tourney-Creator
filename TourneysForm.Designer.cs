@@ -32,6 +32,7 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.deleteTourneyButton = new System.Windows.Forms.Button();
+            this.updateTourneyButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,11 +75,22 @@
             this.deleteTourneyButton.UseVisualStyleBackColor = true;
             this.deleteTourneyButton.Click += new System.EventHandler(this.deleteTourneyButton_Click);
             // 
+            // updateTourneyButton
+            // 
+            this.updateTourneyButton.Location = new System.Drawing.Point(12, 155);
+            this.updateTourneyButton.Name = "updateTourneyButton";
+            this.updateTourneyButton.Size = new System.Drawing.Size(99, 49);
+            this.updateTourneyButton.TabIndex = 4;
+            this.updateTourneyButton.Text = "Оновити турнір";
+            this.updateTourneyButton.UseVisualStyleBackColor = true;
+            this.updateTourneyButton.Click += new System.EventHandler(this.updateTourneyButton_Click);
+            // 
             // TourneysForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.updateTourneyButton);
             this.Controls.Add(this.deleteTourneyButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.closeButton);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button deleteTourneyButton;
+        private System.Windows.Forms.Button updateTourneyButton;
     }
 }

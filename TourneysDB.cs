@@ -6,6 +6,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Tourney_Creator
 {
@@ -56,9 +57,11 @@ namespace Tourney_Creator
             }
         }
 
-        public void GetTeamsIds(int id)
+        public List<int> GetTeamsIds(int id)
         {
-            List<int> lst;
+            List<int> lst = null;
+            string jsonStr = "";
+
             using (SQLiteCommand fmd = con.CreateCommand())
             {
                 try
@@ -69,6 +72,13 @@ namespace Tourney_Creator
 
                     SQLiteDataReader r = fmd.ExecuteReader();
 
+                    while (r.Read())
+                    {
+                        jsonStr = Convert.ToString(r["teamsId"]);
+                    }
+
+                    lst = JsonConvert.DeserializeObject<List<int>>(jsonStr);
+
                     Console.WriteLine(r);
                 }
                 catch (Exception ex)
@@ -77,8 +87,7 @@ namespace Tourney_Creator
                 }
             }
 
-            Console.WriteLine(id);
-            return;
+            return lst;
         }
 
         public DataTable GetDataTable()
@@ -129,6 +138,65 @@ namespace Tourney_Creator
                 }
             }
 
+            return x;
+        }
+
+        public Tourney GetTourney(int id)
+        {
+            Tourney tourney = new Tourney();
+            tourney.Id = id;
+            tourney.Name = "";
+
+            using (SQLiteCommand fmd = con.CreateCommand())
+            {
+                try
+                {
+                    fmd.CommandText = @"SELECT * FROM tourneys WHERE id=@id";
+                    fmd.Parameters.Add("@id", System.Data.DbType.String);
+                    fmd.Parameters["@id"].Value = id;
+
+                    SQLiteDataReader r = fmd.ExecuteReader();
+
+                    while (r.Read())
+                    {
+                        tourney.Name = Convert.ToString(r["name"]);
+                        tourney.TeamsId = Convert.ToString(r["teamsId"]);
+                    }
+
+                    Console.WriteLine(r);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
+                }
+            }
+
+            return tourney;
+        }
+
+        public int updateTeamsId(int id, List<int> lst)
+        {
+            string jsonTeamsId = JsonConvert.SerializeObject(lst);
+
+            int x = 0;
+            using (SQLiteCommand fmd = con.CreateCommand())
+            {
+                try
+                {
+                    fmd.CommandText = @"UPDATE Tourneys SET teamsId = @t WHERE id = @id";
+                    fmd.Parameters.Add("@id", System.Data.DbType.String, -1);
+                    fmd.Parameters["@id"].Value = id;
+
+                    fmd.Parameters.Add("@t", System.Data.DbType.String, -1);
+                    fmd.Parameters["@t"].Value = jsonTeamsId;
+
+                    x = fmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SQLITE UPDATE ERROR : " + ex.Message);
+                }
+            }
             return x;
         }
     }

@@ -147,5 +147,56 @@ namespace Tourney_Creator
 
             return false;
         }
+
+        public void addWinLose(int id, bool isWin)
+        {
+            int count = 0;
+
+            string rowName;
+            if (isWin) rowName = "wins";
+            else rowName = "loses";
+
+            using (SQLiteCommand fmd = con.CreateCommand())
+            {
+                try
+                {
+                    if (isWin) fmd.CommandText = @"SELECT wins FROM Teams WHERE id=@id";
+                    else fmd.CommandText = @"SELECT loses FROM Teams WHERE id=@id";
+                    fmd.Parameters.Add("@id", System.Data.DbType.String);
+                    fmd.Parameters["@id"].Value = id;
+
+                    SQLiteDataReader r = fmd.ExecuteReader();
+
+                    while (r.Read())
+                    {
+                        count = Convert.ToInt32(r[rowName]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
+                }
+            }
+
+            using (SQLiteCommand fmd = con.CreateCommand())
+            {
+                try
+                {
+                    if (isWin) fmd.CommandText = @"UPDATE Teams SET wins = @wl WHERE id = @id";
+                    else fmd.CommandText = @"UPDATE Teams SET loses = @wl WHERE id = @id";
+                    fmd.Parameters.Add("@id", System.Data.DbType.String, -1);
+                    fmd.Parameters["@id"].Value = id;
+
+                    fmd.Parameters.Add("@wl", System.Data.DbType.String, -1);
+                    fmd.Parameters["@wl"].Value = count + 1;
+
+                    fmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SQLITE UPDATE ERROR : " + ex.Message);
+                }
+            }
+        }
     }
 }

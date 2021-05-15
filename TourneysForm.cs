@@ -37,6 +37,16 @@ namespace Tourney_Creator
             db.AddNewTourney(tourneyName,jsonIds);
         }
 
+        public TourneysForm(User autUser, int tourneyId, List<int> teamsList)
+        {
+            InitializeComponent();
+
+            this.autUser = autUser;
+
+            db.ConnectToSQLiteDB();
+            db.updateTeamsId(tourneyId, teamsList);
+        }
+
         private void addNewTourney_Click(object sender, EventArgs e)
         {
             TourneySetName tourneySetName = new TourneySetName(autUser);
@@ -83,6 +93,14 @@ namespace Tourney_Creator
 
             this.Close();
             deleteTourneyForm.Show();
+        }
+
+        private void updateTourneyButton_Click(object sender, EventArgs e)
+        {
+            GetTourneyIdForm getTourneyIdForm = new GetTourneyIdForm(autUser);
+
+            this.Close();
+            getTourneyIdForm.Show();
         }
     }
 }
