@@ -97,7 +97,15 @@ namespace Tourney_Creator
 
         private void updateTourneyButton_Click(object sender, EventArgs e)
         {
-            GetTourneyIdForm getTourneyIdForm = new GetTourneyIdForm(autUser);
+            GetTourneyIdForm getTourneyIdForm = new GetTourneyIdForm(autUser, 1);
+
+            this.Close();
+            getTourneyIdForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetTourneyIdForm getTourneyIdForm = new GetTourneyIdForm(autUser, 2);
 
             this.Close();
             getTourneyIdForm.Show();

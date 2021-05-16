@@ -94,7 +94,7 @@
             this.CreateAccountButton.UseVisualStyleBackColor = true;
             this.CreateAccountButton.Click += new System.EventHandler(this.CreateAccountButton_Click);
             // 
-            // loginForm
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +105,9 @@
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "loginForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Вхід";
             this.Load += new System.EventHandler(this.loginForm_Load);
             this.ResumeLayout(false);

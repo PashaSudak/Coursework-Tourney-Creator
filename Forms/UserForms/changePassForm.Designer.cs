@@ -101,7 +101,9 @@
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ChangePassForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Зміна паролю";
             this.ResumeLayout(false);
             this.PerformLayout();

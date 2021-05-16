@@ -1,6 +1,6 @@
 ﻿namespace Tourney_Creator
 {
-    partial class DeleteTourneyForm
+    partial class TourneySetName
     {
         /// <summary>
         /// Required designer variable.
@@ -30,58 +30,59 @@
         {
             this.closeButton = new System.Windows.Forms.Button();
             this.deleteTeamButton = new System.Windows.Forms.Button();
-            this.textBoxTourneyId = new System.Windows.Forms.TextBox();
+            this.textBoxTourneyName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(46, 108);
+            this.closeButton.Location = new System.Drawing.Point(46, 113);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(93, 39);
-            this.closeButton.TabIndex = 23;
+            this.closeButton.TabIndex = 19;
             this.closeButton.Text = "Вихід";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // deleteTeamButton
             // 
-            this.deleteTeamButton.Location = new System.Drawing.Point(171, 108);
+            this.deleteTeamButton.Location = new System.Drawing.Point(171, 113);
             this.deleteTeamButton.Name = "deleteTeamButton";
             this.deleteTeamButton.Size = new System.Drawing.Size(93, 39);
-            this.deleteTeamButton.TabIndex = 22;
-            this.deleteTeamButton.Text = "Видалити";
+            this.deleteTeamButton.TabIndex = 18;
+            this.deleteTeamButton.Text = "Далі";
             this.deleteTeamButton.UseVisualStyleBackColor = true;
-            this.deleteTeamButton.Click += new System.EventHandler(this.deleteTourneyButton_Click);
+            this.deleteTeamButton.Click += new System.EventHandler(this.deleteTeamButton_Click);
             // 
-            // textBoxTourneyId
+            // textBoxTourneyName
             // 
-            this.textBoxTourneyId.Location = new System.Drawing.Point(75, 60);
-            this.textBoxTourneyId.Name = "textBoxTourneyId";
-            this.textBoxTourneyId.Size = new System.Drawing.Size(166, 20);
-            this.textBoxTourneyId.TabIndex = 21;
-            this.textBoxTourneyId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTourneyId_KeyPress);
+            this.textBoxTourneyName.Location = new System.Drawing.Point(75, 65);
+            this.textBoxTourneyName.Name = "textBoxTourneyName";
+            this.textBoxTourneyName.Size = new System.Drawing.Size(166, 20);
+            this.textBoxTourneyName.TabIndex = 17;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(110, 34);
+            this.label1.Location = new System.Drawing.Point(105, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Введіть id турніру";
+            this.label1.Size = new System.Drawing.Size(115, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Введіть назву турніру";
             // 
-            // deleteTourneyForm
+            // TourneySetName
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 179);
+            this.ClientSize = new System.Drawing.Size(311, 188);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.deleteTeamButton);
-            this.Controls.Add(this.textBoxTourneyId);
+            this.Controls.Add(this.textBoxTourneyName);
             this.Controls.Add(this.label1);
-            this.Name = "deleteTourneyForm";
-            this.Text = "deleteTourneyForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "TourneySetName";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "TeamAddForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,7 +92,7 @@
 
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button deleteTeamButton;
-        private System.Windows.Forms.TextBox textBoxTourneyId;
+        private System.Windows.Forms.TextBox textBoxTourneyName;
         private System.Windows.Forms.Label label1;
     }
 }

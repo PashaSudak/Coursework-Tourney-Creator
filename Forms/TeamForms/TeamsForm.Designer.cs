@@ -85,7 +85,9 @@
             this.Controls.Add(this.deleteTeamButton);
             this.Controls.Add(this.addTeamButton);
             this.Controls.Add(this.closeButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TeamsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TeamsForm";
             this.Load += new System.EventHandler(this.TeamsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

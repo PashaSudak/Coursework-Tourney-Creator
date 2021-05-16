@@ -83,7 +83,9 @@
             this.Controls.Add(this.tourneysButton);
             this.Controls.Add(this.teamsButton);
             this.Controls.Add(this.changePassButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
 

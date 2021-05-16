@@ -76,10 +76,11 @@ namespace Tourney_Creator
             }
 
             currentMatch = 0;
-            team1Button.Text = Convert.ToString(lastRoundList[currentMatch]);
+            team1Button.Text = Convert.ToString(teamsDb.GetTeamName(lastRoundList[currentMatch]));
+            //if tourney contains only 1 team
             try
             {
-                team2Button.Text = Convert.ToString(lastRoundList[currentMatch + 1]);
+                team2Button.Text = Convert.ToString(teamsDb.GetTeamName(lastRoundList[currentMatch + 1]));
             }
             catch
             {
@@ -114,8 +115,8 @@ namespace Tourney_Creator
             {
                 currentMatch += 2;
 
-                team1Button.Text = Convert.ToString(lastRoundList[currentMatch]);
-                team2Button.Text = Convert.ToString(lastRoundList[currentMatch + 1]);
+                team1Button.Text = Convert.ToString(teamsDb.GetTeamName(lastRoundList[currentMatch]));
+                team2Button.Text = Convert.ToString(teamsDb.GetTeamName(lastRoundList[currentMatch + 1]));
             }
             catch
             {
@@ -125,12 +126,13 @@ namespace Tourney_Creator
                 }
                 catch { }
 
+                this.Hide();
+
                 MessageBox.Show("Раунд закінчен!",
                     "INFO",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                this.Hide();
 
                 TourneysForm tourneysForm = new TourneysForm(autUser, tourney.Id, newLst);
                 tourneysForm.Show();

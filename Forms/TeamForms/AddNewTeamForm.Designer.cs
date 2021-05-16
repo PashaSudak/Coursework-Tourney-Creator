@@ -81,7 +81,9 @@
             this.Controls.Add(this.addNewTeamButton);
             this.Controls.Add(this.textBoxTeamName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddNewTeamForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputForm";
             this.ResumeLayout(false);
             this.PerformLayout();

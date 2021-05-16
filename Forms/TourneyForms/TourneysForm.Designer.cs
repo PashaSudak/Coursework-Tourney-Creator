@@ -33,6 +33,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.deleteTourneyButton = new System.Windows.Forms.Button();
             this.updateTourneyButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,21 +82,34 @@
             this.updateTourneyButton.Name = "updateTourneyButton";
             this.updateTourneyButton.Size = new System.Drawing.Size(99, 49);
             this.updateTourneyButton.TabIndex = 4;
-            this.updateTourneyButton.Text = "Оновити турнір";
+            this.updateTourneyButton.Text = "Оновити Турнір";
             this.updateTourneyButton.UseVisualStyleBackColor = true;
             this.updateTourneyButton.Click += new System.EventHandler(this.updateTourneyButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 230);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 49);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Переглянути Турнір";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TourneysForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.updateTourneyButton);
             this.Controls.Add(this.deleteTourneyButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.addNewTourney);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TourneysForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TourneysForm";
             this.Load += new System.EventHandler(this.TourneysForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -110,5 +124,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button deleteTourneyButton;
         private System.Windows.Forms.Button updateTourneyButton;
+        private System.Windows.Forms.Button button1;
     }
 }

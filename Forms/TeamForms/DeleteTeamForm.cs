@@ -25,26 +25,37 @@ namespace Tourney_Creator
 
         private void deleteTeamButton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(textBoxTeamName.Text.Trim());
-
-            int result = db.DeleteTeamFromDB(id);
-
-            if (result == 0)
+            try
             {
-                MessageBox.Show("Команду не знайденно!",
-                    "!!!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                int id = Convert.ToInt32(textBoxTeamName.Text.Trim());
+
+                int result = db.DeleteTeamFromDB(id);
+
+                if (result == 0)
+                {
+                    MessageBox.Show("Команду не знайденно!",
+                        "!!!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+                else
+                {
+                    MessageBox.Show("Команду видаленно!",
+                        "!!!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                    File.AppendAllText("log.txt", "Info. " + autUser.Login + " deleted team with id " + id + ".\n");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Команду видаленно!",
-                    "!!!",
+                MessageBox.Show("ERROR: Пусте поле!",
+                    "ERROR",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
+                    MessageBoxIcon.Error
                 );
-                File.AppendAllText("log.txt", "Info. " + autUser.Login + " deleted team with id " + id + ".\n");
             }
         }
 

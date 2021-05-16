@@ -198,5 +198,32 @@ namespace Tourney_Creator
                 }
             }
         }
+
+        public string GetTeamName(int id)
+        {
+            string teamName = "";
+            using (SQLiteCommand fmd = con.CreateCommand())
+            {
+                try
+                {
+                    fmd.CommandText = @"SELECT name FROM Teams WHERE id=@id";
+                    fmd.Parameters.Add("@id", System.Data.DbType.String);
+                    fmd.Parameters["@id"].Value = id;
+
+                    SQLiteDataReader r = fmd.ExecuteReader();
+
+                    while (r.Read())
+                    {
+                        teamName = Convert.ToString(r["name"]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
+                }
+            }
+
+            return teamName;
+        }
     }
 }

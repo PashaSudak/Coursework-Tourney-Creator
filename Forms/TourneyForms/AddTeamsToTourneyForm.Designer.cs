@@ -91,7 +91,9 @@
             this.Controls.Add(this.addTeamButton);
             this.Controls.Add(this.textBoxTeamId);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddTeamsToTourneyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddTeamsToTourneyForm";
             this.ResumeLayout(false);
             this.PerformLayout();

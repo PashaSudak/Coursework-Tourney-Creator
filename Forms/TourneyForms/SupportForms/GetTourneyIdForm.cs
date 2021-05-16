@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tourney_Creator.Forms.TourneyForms;
 
 namespace Tourney_Creator
 {
@@ -15,11 +16,15 @@ namespace Tourney_Creator
     {
         User autUser = new User();
         TourneysDB db = new TourneysDB();
-        public GetTourneyIdForm(User autUser)
+        private int nextFormId;
+        private Form nextForm = null;
+
+        public GetTourneyIdForm(User autUser, int nextFormId)
         {
             InitializeComponent();
 
             this.autUser = autUser;
+            this.nextFormId = nextFormId;
 
             db.ConnectToSQLiteDB();
         }
@@ -57,10 +62,12 @@ namespace Tourney_Creator
                 }
                 else
                 {
-                    UpdateTourneyForm updateTourneyForm = new UpdateTourneyForm(tourney, autUser);
+
+                    if (nextFormId == 1) nextForm = new UpdateTourneyForm(tourney, autUser);
+                    else nextForm = new ShowTourney(tourney, autUser);
 
                     this.Close();
-                    updateTourneyForm.Show();
+                    nextForm.Show();
                 }
             }
             catch

@@ -125,108 +125,117 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddTeamsToTourneyForm.cs">
+    <Compile Include="Forms\TourneyForms\AddTeamsToTourneyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddTeamsToTourneyForm.Designer.cs">
+    <Compile Include="Forms\TourneyForms\AddTeamsToTourneyForm.Designer.cs">
       <DependentUpon>AddTeamsToTourneyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChangePassForm.cs">
+    <Compile Include="Forms\TourneyForms\ShowTourney.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangePassForm.Designer.cs">
+    <Compile Include="Forms\TourneyForms\ShowTourney.Designer.cs">
+      <DependentUpon>ShowTourney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForms\ChangePassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForms\ChangePassForm.Designer.cs">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewTeamForm.cs">
+    <Compile Include="Forms\TeamForms\AddNewTeamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewTeamForm.Designer.cs">
+    <Compile Include="Forms\TeamForms\AddNewTeamForm.Designer.cs">
       <DependentUpon>AddNewTeamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteTeamForm.cs">
+    <Compile Include="Forms\TeamForms\DeleteTeamForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteTeamForm.Designer.cs">
+    <Compile Include="Forms\TeamForms\DeleteTeamForm.Designer.cs">
       <DependentUpon>DeleteTeamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteTourneyForm.cs">
+    <Compile Include="Forms\TourneyForms\DeleteTourneyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteTourneyForm.Designer.cs">
+    <Compile Include="Forms\TourneyForms\DeleteTourneyForm.Designer.cs">
       <DependentUpon>DeleteTourneyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GetTourneyIdForm.cs">
+    <Compile Include="Forms\TourneyForms\SupportForms\GetTourneyIdForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GetTourneyIdForm.Designer.cs">
+    <Compile Include="Forms\TourneyForms\SupportForms\GetTourneyIdForm.Designer.cs">
       <DependentUpon>GetTourneyIdForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Team.cs" />
-    <Compile Include="TourneySetName.cs">
+    <Compile Include="Classes\Team.cs" />
+    <Compile Include="Forms\TourneyForms\SupportForms\TourneySetName.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TourneySetName.Designer.cs">
+    <Compile Include="Forms\TourneyForms\SupportForms\TourneySetName.Designer.cs">
       <DependentUpon>TourneySetName.cs</DependentUpon>
     </Compile>
-    <Compile Include="TeamsDB.cs" />
-    <Compile Include="TeamsForm.cs">
+    <Compile Include="DBs\TeamsDB.cs" />
+    <Compile Include="Forms\TeamForms\TeamsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TeamsForm.Designer.cs">
+    <Compile Include="Forms\TeamForms\TeamsForm.Designer.cs">
       <DependentUpon>TeamsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tourney.cs" />
-    <Compile Include="TourneysDB.cs" />
-    <Compile Include="TourneysForm.cs">
+    <Compile Include="Classes\Tourney.cs" />
+    <Compile Include="DBs\TourneysDB.cs" />
+    <Compile Include="Forms\TourneyForms\TourneysForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TourneysForm.Designer.cs">
+    <Compile Include="Forms\TourneyForms\TourneysForm.Designer.cs">
       <DependentUpon>TourneysForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateTourneyForm.cs">
+    <Compile Include="Forms\TourneyForms\UpdateTourneyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateTourneyForm.Designer.cs">
+    <Compile Include="Forms\TourneyForms\UpdateTourneyForm.Designer.cs">
       <DependentUpon>UpdateTourneyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsersDB.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="DBs\UsersDB.cs" />
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
-    <EmbeddedResource Include="AddTeamsToTourneyForm.resx">
+    <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Forms\TourneyForms\AddTeamsToTourneyForm.resx">
       <DependentUpon>AddTeamsToTourneyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangePassForm.resx">
+    <EmbeddedResource Include="Forms\TourneyForms\ShowTourney.resx">
+      <DependentUpon>ShowTourney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForms\ChangePassForm.resx">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewTeamForm.resx">
+    <EmbeddedResource Include="Forms\TeamForms\AddNewTeamForm.resx">
       <DependentUpon>AddNewTeamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteTeamForm.resx">
+    <EmbeddedResource Include="Forms\TeamForms\DeleteTeamForm.resx">
       <DependentUpon>DeleteTeamForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteTourneyForm.resx">
+    <EmbeddedResource Include="Forms\TourneyForms\DeleteTourneyForm.resx">
       <DependentUpon>DeleteTourneyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GetTourneyIdForm.resx">
+    <EmbeddedResource Include="Forms\TourneyForms\SupportForms\GetTourneyIdForm.resx">
       <DependentUpon>GetTourneyIdForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -238,16 +247,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TourneySetName.resx">
+    <EmbeddedResource Include="Forms\TourneyForms\SupportForms\TourneySetName.resx">
       <DependentUpon>TourneySetName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TeamsForm.resx">
+    <EmbeddedResource Include="Forms\TeamForms\TeamsForm.resx">
       <DependentUpon>TeamsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TourneysForm.resx">
+    <EmbeddedResource Include="Forms\TourneyForms\TourneysForm.resx">
       <DependentUpon>TourneysForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateTourneyForm.resx">
+    <EmbeddedResource Include="Forms\TourneyForms\UpdateTourneyForm.resx">
       <DependentUpon>UpdateTourneyForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
@@ -274,6 +283,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
