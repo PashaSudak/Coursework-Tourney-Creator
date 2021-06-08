@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
+
 namespace Tourney_Creator
 {
     public partial class AddTeamsToTourneyForm : Form
@@ -20,6 +21,7 @@ namespace Tourney_Creator
         List<int> teamsIdList = new List<int>();
         TeamsDB teamsDB = new TeamsDB();
         TourneysDB tourneysDb = new TourneysDB();
+        private static Random rng = new Random();
         public AddTeamsToTourneyForm(User autUser, string tourneyName)
         {
             InitializeComponent();
@@ -77,13 +79,17 @@ namespace Tourney_Creator
 
                 teamsIdList.Add(newTeamId);
 
-                jsonTeamsId = JsonConvert.SerializeObject(teamsIdList);
+                List<int> shuffledList = teamsIdList.OrderBy(a => Guid.NewGuid()).ToList();
+
+                jsonTeamsId = JsonConvert.SerializeObject(shuffledList);
 
                 MessageBox.Show("Команду з id " + newTeamId + " доданно!",
                     "!!!",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
+
+                closeButton.Text = "Створити турнір";
             }
             else
             {

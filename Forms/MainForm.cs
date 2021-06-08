@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tourney_Creator.Forms.DiagramForms;
 
 namespace Tourney_Creator
 {
@@ -26,7 +27,7 @@ namespace Tourney_Creator
             ChangePassForm changePassForm = new ChangePassForm(autUser);
 
             changePassForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void teamsButton_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace Tourney_Creator
             TeamsForm teamsForm = new TeamsForm(autUser);
 
             teamsForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void tourneysButton_Click(object sender, EventArgs e)
@@ -42,12 +43,30 @@ namespace Tourney_Creator
             TourneysForm tourneysForm = new TourneysForm(autUser);
 
             tourneysForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void diagramsButton_Click(object sender, EventArgs e)
+        {
+            DiagramForm diagramForm = new DiagramForm(autUser);
+
+            diagramForm.Show();
+            this.Close();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

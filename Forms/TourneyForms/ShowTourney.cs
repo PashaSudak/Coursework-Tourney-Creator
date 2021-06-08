@@ -44,6 +44,8 @@ namespace Tourney_Creator.Forms.TourneyForms
             int even = 1;
 
             lastRoundList.Add(list[0]);
+
+            //even потрібен для випадків з непарной кількістю команд
             for (int i = 1; i < list.Count; i++)
             {
                 if (lastRoundList.Contains(list[i]))
@@ -64,6 +66,11 @@ namespace Tourney_Creator.Forms.TourneyForms
                     lastRoundList.Clear();
                 }
 
+                if (i == list.Count - 1 && lastRoundList.Count > 1)
+                {
+                    text += ("Команда " + teamsDb.GetTeamName(list[i]) + " проходить в наступний раунд\n");
+                }
+
                 lastRoundList.Add(list[i]);
 
                 if (i % 2 == even)
@@ -78,6 +85,8 @@ namespace Tourney_Creator.Forms.TourneyForms
             }
 
             label1.Text = text;
+
+            this.Text = "Турнір " + tourney.Name;
         }
     }
 }

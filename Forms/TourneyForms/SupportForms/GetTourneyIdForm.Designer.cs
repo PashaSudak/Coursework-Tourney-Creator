@@ -81,9 +81,11 @@
             this.Controls.Add(this.textBoxTourneyName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GetTourneyIdForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GetTourneyIdForm";
+            this.Text = "Введення турніру";
             this.Load += new System.EventHandler(this.GetTourneyIdForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

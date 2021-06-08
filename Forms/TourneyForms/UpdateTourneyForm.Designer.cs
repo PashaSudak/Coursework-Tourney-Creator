@@ -94,9 +94,11 @@
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UpdateTourneyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UpdateTourneyForm";
+            this.Text = "Введення переможця";
             this.Load += new System.EventHandler(this.UpdateTourneyForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

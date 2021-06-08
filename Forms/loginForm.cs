@@ -110,7 +110,7 @@ namespace Tourney_Creator
                 File.AppendAllText("log.txt", "Info. Created new account - " + login + ".\n");
 
                 MessageBox.Show("Акаунт створенно",
-                    "ERROR",
+                    "INFO",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );

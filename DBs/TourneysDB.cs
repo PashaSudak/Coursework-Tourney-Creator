@@ -57,39 +57,6 @@ namespace Tourney_Creator
             }
         }
 
-        public List<int> GetTeamsIds(int id)
-        {
-            List<int> lst = null;
-            string jsonStr = "";
-
-            using (SQLiteCommand fmd = con.CreateCommand())
-            {
-                try
-                {
-                    fmd.CommandText = @"SELECT teamsId FROM tourneys WHERE id=@id";
-                    fmd.Parameters.Add("@id", System.Data.DbType.String);
-                    fmd.Parameters["@id"].Value = id;
-
-                    SQLiteDataReader r = fmd.ExecuteReader();
-
-                    while (r.Read())
-                    {
-                        jsonStr = Convert.ToString(r["teamsId"]);
-                    }
-
-                    lst = JsonConvert.DeserializeObject<List<int>>(jsonStr);
-
-                    Console.WriteLine(r);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
-                }
-            }
-
-            return lst;
-        }
-
         public DataTable GetDataTable()
         {
             DataSet dataSet = new DataSet();
@@ -97,7 +64,6 @@ namespace Tourney_Creator
             try
             {
                 sqliteDataAdapter = new SQLiteDataAdapter("SELECT * FROM Tourneys", con);
-
 
                 sqliteDataAdapter.Fill(dataSet, "Tourneys");
 

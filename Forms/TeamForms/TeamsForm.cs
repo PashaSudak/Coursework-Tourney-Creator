@@ -59,6 +59,11 @@ namespace Tourney_Creator
             db.ConnectToSQLiteDB();
 
             LoadData();
+
+            dataGridView1.Columns[1].HeaderText = "Назва команди";
+            dataGridView1.Columns[2].HeaderText = "К-сть перемог";
+            dataGridView1.Columns[3].HeaderText = "К-сть поразок";
+            dataGridView1.Columns[4].HeaderText = "Відсоток перемог (%)";
         }
 
         private void LoadData()

@@ -108,6 +108,7 @@
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -125,6 +126,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\DiagramForms\DiagramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DiagramForms\DiagramForm.Designer.cs">
+      <DependentUpon>DiagramForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TourneyForms\AddTeamsToTourneyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +218,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Forms\DiagramForms\DiagramForm.resx">
+      <DependentUpon>DiagramForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TourneyForms\AddTeamsToTourneyForm.resx">
       <DependentUpon>AddTeamsToTourneyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +256,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\TourneyForms\SupportForms\TourneySetName.resx">
       <DependentUpon>TourneySetName.cs</DependentUpon>
@@ -283,7 +294,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

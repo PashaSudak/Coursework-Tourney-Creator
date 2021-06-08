@@ -142,16 +142,26 @@ namespace Tourney_Creator
         private void team1Button_Click(object sender, EventArgs e)
         {
             newLst.Add(lastRoundList[currentMatch]);
+
             teamsDb.addWinLose(lastRoundList[currentMatch], true);
             teamsDb.addWinLose(lastRoundList[currentMatch + 1], false);
+
+            teamsDb.updateWinrate(lastRoundList[currentMatch]);
+            teamsDb.updateWinrate(lastRoundList[currentMatch + 1]);
+
             updateButtons();
         }
 
         private void team2Button_Click(object sender, EventArgs e)
         {
             newLst.Add(lastRoundList[currentMatch + 1]);
+
             teamsDb.addWinLose(lastRoundList[currentMatch + 1], true);
             teamsDb.addWinLose(lastRoundList[currentMatch], false);
+
+            teamsDb.updateWinrate(lastRoundList[currentMatch]);
+            teamsDb.updateWinrate(lastRoundList[currentMatch + 1]);
+
             updateButtons();
         }
     }

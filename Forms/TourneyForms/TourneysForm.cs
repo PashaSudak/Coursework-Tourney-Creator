@@ -66,6 +66,9 @@ namespace Tourney_Creator
         private void TourneysForm_Load(object sender, EventArgs e)
         {
             LoadData();
+
+            dataGridView1.Columns[1].HeaderText = "Назва турніру";
+            dataGridView1.Columns[2].HeaderText = "Турнірна сітка";
         }
 
         private void LoadData()

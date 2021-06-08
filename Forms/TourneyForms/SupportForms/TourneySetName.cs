@@ -37,5 +37,15 @@ namespace Tourney_Creator
             this.Close();
             addTeamsToTourneyForm.Show();
         }
+
+        private void textBoxTourneyName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

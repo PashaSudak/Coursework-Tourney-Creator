@@ -60,6 +60,7 @@
             this.textBoxTourneyName.Name = "textBoxTourneyName";
             this.textBoxTourneyName.Size = new System.Drawing.Size(166, 20);
             this.textBoxTourneyName.TabIndex = 17;
+            this.textBoxTourneyName.TextChanged += new System.EventHandler(this.textBoxTourneyName_TextChanged);
             // 
             // label1
             // 
@@ -69,6 +70,7 @@
             this.label1.Size = new System.Drawing.Size(115, 13);
             this.label1.TabIndex = 16;
             this.label1.Text = "Введіть назву турніру";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // TourneySetName
             // 
@@ -80,9 +82,11 @@
             this.Controls.Add(this.textBoxTourneyName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TourneySetName";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TeamAddForm";
+            this.Text = "Введення назви";
             this.ResumeLayout(false);
             this.PerformLayout();
 

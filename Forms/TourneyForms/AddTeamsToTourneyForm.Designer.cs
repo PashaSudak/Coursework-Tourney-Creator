@@ -92,9 +92,11 @@
             this.Controls.Add(this.textBoxTeamId);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddTeamsToTourneyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddTeamsToTourneyForm";
+            this.Text = "Введення команд в турнір";
             this.ResumeLayout(false);
             this.PerformLayout();
 

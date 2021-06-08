@@ -89,51 +89,6 @@ namespace Tourney_Creator
             }
         }
 
-        public int DeleteUserFromDB()
-        {// CheckLogin and Password. 0 - fail; other - it's user id
-            string login;
-            Console.Write("LOGIN : "); login = Console.ReadLine();
-            int x = 0;
-            Console.Write("Do you really want to delete user '" + login + "' [Y/N]?");
-            ConsoleKeyInfo UserInput = Console.ReadKey(); // Get user input
-
-            if (!(UserInput.KeyChar.ToString() == "y" || UserInput.KeyChar.ToString() == "Y"))
-            {
-                Console.Write("Deleting user '" + login + "' has been cancelled");
-                return 0;
-            }
-
-            Console.Write("\n");
-            using (SQLiteCommand fmd = con.CreateCommand())
-            {
-                try
-                {
-                    // fmd.CommandText = @"SELECT id FROM users WHERE login=@l AND password=@p";
-                    fmd.CommandText = @"DELETE FROM users WHERE login = @l";
-                    fmd.Parameters.Add("@l", System.Data.DbType.String, -1);
-                    fmd.Parameters["@l"].Value = login;
-
-
-                    x = fmd.ExecuteNonQuery();
-                    if (x != 0)
-                    {
-                        Console.WriteLine("USER '" + login + "' DELETED SUCCESSFULLY FROM SQLITE DB!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("USER '" + login + "' NOT FOUND FROM SQLITE DB!");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("SQLITE SELECT ERROR : " + ex.Message);
-                }
-            }
-
-            return x;
-
-        }
-
         public int ModifyUserPassword(User autUser, string login, string newPass)
         {// CheckLogin and Password. 0 - fail; -1 - no rights; other - it's user id
             if ((autUser.Login != login) && (autUser.rights != 2))

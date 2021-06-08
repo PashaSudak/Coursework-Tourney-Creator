@@ -108,9 +108,11 @@
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.addNewTourney);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TourneysForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TourneysForm";
+            this.Text = "Турніри";
             this.Load += new System.EventHandler(this.TourneysForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

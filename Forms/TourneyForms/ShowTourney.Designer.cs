@@ -60,7 +60,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ShowTourney";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ShowTourney";
+            this.Text = "Турнір";
             this.Load += new System.EventHandler(this.ShowTourney_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
