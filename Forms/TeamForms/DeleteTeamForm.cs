@@ -38,6 +38,8 @@ namespace Tourney_Creator
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
+
+                    File.AppendAllText("log.txt", "Error. Cant find team.\n");
                 }
                 else
                 {
@@ -46,6 +48,7 @@ namespace Tourney_Creator
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
+
                     File.AppendAllText("log.txt", "Info. " + autUser.Login + " deleted team with id " + id + ".\n");
                 }
             }
@@ -56,6 +59,8 @@ namespace Tourney_Creator
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
+
+                File.AppendAllText("log.txt", "Error. Empty textBox.\n");
             }
         }
 

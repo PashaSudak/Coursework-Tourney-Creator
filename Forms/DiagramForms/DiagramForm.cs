@@ -45,9 +45,28 @@ namespace Tourney_Creator.Forms.DiagramForms
                     chart1.Series[0].Points.AddXY(row[1], Convert.ToDouble(row[2]));
                 }
             }
+
+            chart2.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                DataRow row = dataTable.Rows[i];
+                if (Convert.ToInt32(row["loses"]) > 0)
+                {
+                    chart2.Series[0].Points.AddXY(row[1], Convert.ToDouble(row[3]));
+                }
+            }
+
+            chart1.Series[0]["PieLabelStyle"] = "Disabled";
+            chart2.Series[0]["PieLabelStyle"] = "Disabled";
         }
 
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
         {
 
         }

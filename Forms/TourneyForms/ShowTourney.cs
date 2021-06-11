@@ -66,12 +66,14 @@ namespace Tourney_Creator.Forms.TourneyForms
                     lastRoundList.Clear();
                 }
 
-                if (i == list.Count - 1 && lastRoundList.Count > 1)
+                lastRoundList.Add(list[i]);
+
+                if (i == list.Count - 1 && lastRoundList.Count > 1 && lastRoundList.Count % 2 != 0)
                 {
                     text += ("Команда " + teamsDb.GetTeamName(list[i]) + " проходить в наступний раунд\n");
                 }
 
-                lastRoundList.Add(list[i]);
+                
 
                 if (i % 2 == even)
                 {

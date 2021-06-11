@@ -55,6 +55,8 @@ namespace Tourney_Creator
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
+
+                    File.AppendAllText("log.txt", "Errror. Tourney not found.\n");
                 }
                 else
                 {
@@ -73,6 +75,8 @@ namespace Tourney_Creator
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
+
+                File.AppendAllText("log.txt", "Errror. Empty textBox.\n");
             }
         }
     }
